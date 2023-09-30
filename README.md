@@ -25,7 +25,7 @@ and this will delete any existing results and run the benches for bun, deno and 
 
 results are output as json in results.{runtime}.json, and comprise an array of results that look like this
 
-```json
+```JavaScript
   {
     "name": "1", // size of the payload
     "count": 32847960, // the number of runs completed
