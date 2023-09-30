@@ -43,12 +43,20 @@ results are output as json in results.{runtime}.json, and comprise an array of r
 
 each results file will contain 5 runs for each payload size. this can be changed in the utf8.mjs script.
 
-There is a google sheet here with results from a run. Feel free to copy and you can update the results for each framework by generating the rates from the results files as follows.
+There is a google sheet [here](https://docs.google.com/spreadsheets/d/1UDjNioC8a9UW2swBfKfMz6IXgGTAvmHkQ-Z7nud05f0/edit?usp=sharing) with results from a run. Feel free to copy and you can update the results for each framework by generating the rates from the results files as follows. 
 
 ```
 deno run -A process.mjs node
+deno run -A process.mjs deno
+deno run -A process.mjs bun
 ```
 
-this will use deno to process the ```results.node.json``` file which will output a result on a separate line for each payload size, starting from 1 and increasing by a power of two to 1 million.
+This will use deno to process the ```results.node.json``` file which will output a result on a separate line for each payload size, starting from 1 and increasing by a power of two to 1 million.
+
+You can use any of the runtimes to run the scripts. ```bench.mjs``` has some code which creates a common abstraction across the runtime for some of the basic primitives we need to do the benchmark.
 
 ```process.mjs``` will discard the first result from the 5 runs and select the max of the remaining run. this will probably change.
+
+You can paste the results into the google sheet. Here is what they look like.
+
+![Benchmark Results](bun-deno-node-utf-8.png)
